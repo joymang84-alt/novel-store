@@ -34,10 +34,14 @@ $result = mysqli_query($conn, $sql);
             <div class="col-md-3 mb-4">
                 <div class="card bg-secondary text-white h-100">
                     <div class="card-body">
+                        <img src="images/<?php echo $novel['cover_image']; ?>" 
+     alt="<?php echo $novel['title']; ?>"
+     style="width:100%; height:250px; object-fit:cover; border-radius:5px; margin-bottom:10px;">
                         <h5 class="card-title"><?php echo $novel['title']; ?></h5>
                         <p class="card-text">By <?php echo $novel['author']; ?></p>
                         <p class="card-text">Genre: <?php echo $novel['genre']; ?></p>
                         <h6 class="text-warning">KSh <?php echo $novel['price']; ?></h6>
+                       <a href="cart.php?add=<?php echo $novel['id']; ?>" class="btn btn-primary btn-sm mt-2">Add to Cart</a>
                         <?php if(isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
                             <a href="edit_novel.php?id=<?php echo $novel['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
                             <a href="delete_novel.php?id=<?php echo $novel['id']; ?>" class="btn btn-danger btn-sm">Delete</a>
